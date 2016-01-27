@@ -25,10 +25,12 @@
     
     self.mainLayout = [[UICollectionViewFlowLayout alloc] init];
     self.mainLayout.itemSize = CGSizeMake(100, 100);
-    self.mainLayout.minimumInteritemSpacing = 10;
-    self.mainLayout.minimumLineSpacing = 10;
-    self.mainLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    self.mainLayout.minimumInteritemSpacing = 1;
+    self.mainLayout.minimumLineSpacing = 1;
+    self.mainLayout.sectionInset = UIEdgeInsetsMake(1, 1, 1, 1);
     self.collectionView.collectionViewLayout = self.mainLayout;
+    
+    self.mainLayout.headerReferenceSize = CGSizeMake(CGRectGetWidth(self.collectionView.frame), 40);
     
     Photo *basketball = [[Photo alloc] initWithSubject:@"people" location:@"outside" andImage:[UIImage imageNamed:@"IMG_2041_2"]];
     Photo *badass = [[Photo alloc] initWithSubject:@"people" location:@"outside" andImage:[UIImage imageNamed:@"IMG_2202_2"]];
@@ -49,7 +51,7 @@
 
 // Total number of sections
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
+    return 2;
 }
 
 // Section number
@@ -66,7 +68,10 @@
     
     Photo *currentObject = self.imagesArray[indexPath.item];
     UIImage *currentImage = currentObject.image;
+    
     cell.photoView.image = currentImage;
+    cell.photoView.contentMode = UIViewContentModeScaleAspectFill;
+    cell.photoView.clipsToBounds = YES;
     
     return cell;
 }
@@ -75,7 +80,16 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(100 + self.mainLayout.minimumInteritemSpacing, 100 + self.mainLayout.minimumInteritemSpacing);
+    CGFloat addSpace = ((self.collectionView.frame.size.width / 3) - (100 -20)) / 2;
+    return CGSizeMake(100 + addSpace, 100 + addSpace);
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        return [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"SectionHeader" forIndexPath:indexPath];
+    }
+    return nil;
 }
 
 @end
