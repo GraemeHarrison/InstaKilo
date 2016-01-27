@@ -41,21 +41,24 @@
     Photo *brothers = [[Photo alloc] initWithSubject:@"people" location:@"outside" andImage:[UIImage imageNamed:@"IMG_2984"]];
     Photo *card = [[Photo alloc] initWithSubject:@"art" location:@"inside" andImage:[UIImage imageNamed:@"IMG_3112"]];
     
-    self.imagesArray = [[NSMutableArray alloc]initWithObjects:basketball, badass, pumpikin, nukeEm, safari, king, builder, guitar, brothers, card, nil];
+    self.imagesArray = [[NSMutableArray alloc]initWithObjects: basketball, badass, pumpikin, nukeEm, safari, king, builder, guitar, brothers, card, nil];
 }
 
 
 #pragma mark - UICollectionViewDataSource
 
+// Total number of sections
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
 
+// Section number
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 3;
+    return self.imagesArray.count;
 }
 
+// Create cells
 - (PhotoCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     PhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCell" forIndexPath:indexPath];
