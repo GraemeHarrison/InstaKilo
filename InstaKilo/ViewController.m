@@ -7,8 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "PhotoCell.h"
 
-@interface ViewController ()
+@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong,nonatomic) UICollectionViewFlowLayout *mainLayout;
 
 @end
 
@@ -16,12 +20,43 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    self.mainLayout = [[UICollectionViewFlowLayout alloc] init];
+    self.mainLayout.itemSize = CGSizeMake(100, 100);
+    self.mainLayout.minimumInteritemSpacing = 10;
+    self.mainLayout.minimumLineSpacing = 10;
+    self.mainLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    self.collectionView.collectionViewLayout = self.mainLayout;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 3;
+}
+
+- (PhotoCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    PhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCell" forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor whiteColor];
+    return cell;
+}
+
+#pragma mark - UICollectionViewDelegateFlowLayout
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (collectionViewLayout == self.mainLayout) {
+    
+        return CGSizeMake(100 + self.mainLayout.minimumInteritemSpacing, 100 + self.mainLayout.minimumInteritemSpacing);
+    }
+    return CGSizeZero;
 }
 
 @end
