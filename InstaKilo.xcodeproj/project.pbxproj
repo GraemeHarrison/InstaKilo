@@ -18,6 +18,7 @@
 		2E27C7E01C5933DC006FDD74 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E27C7DF1C5933DC006FDD74 /* PhotoCell.m */; };
 		2E27C7E31C59420F006FDD74 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E27C7E21C59420F006FDD74 /* Photo.m */; };
 		2E27C7E61C5945B9006FDD74 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E27C7E51C5945B9006FDD74 /* CollectionViewController.m */; };
+		2E27C82B1C5993B2006FDD74 /* SectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E27C82A1C5993B2006FDD74 /* SectionHeader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		2E27C7E21C59420F006FDD74 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		2E27C7E41C5945B9006FDD74 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		2E27C7E51C5945B9006FDD74 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		2E27C8291C5993B2006FDD74 /* SectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionHeader.h; sourceTree = "<group>"; };
+		2E27C82A1C5993B2006FDD74 /* SectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionHeader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				2E27C7DF1C5933DC006FDD74 /* PhotoCell.m */,
 				2E27C7E41C5945B9006FDD74 /* CollectionViewController.h */,
 				2E27C7E51C5945B9006FDD74 /* CollectionViewController.m */,
+				2E27C8291C5993B2006FDD74 /* SectionHeader.h */,
+				2E27C82A1C5993B2006FDD74 /* SectionHeader.m */,
 				2E27C7B41C5926D4006FDD74 /* Main.storyboard */,
 				2E27C7B71C5926D4006FDD74 /* Assets.xcassets */,
 				2E27C7B91C5926D4006FDD74 /* LaunchScreen.storyboard */,
@@ -286,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E27C7E01C5933DC006FDD74 /* PhotoCell.m in Sources */,
+				2E27C82B1C5993B2006FDD74 /* SectionHeader.m in Sources */,
 				2E27C7B31C5926D4006FDD74 /* ViewController.m in Sources */,
 				2E27C7E61C5945B9006FDD74 /* CollectionViewController.m in Sources */,
 				2E27C7B01C5926D4006FDD74 /* AppDelegate.m in Sources */,
@@ -514,6 +520,7 @@
 				2E27C7D71C5926D5006FDD74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2E27C7D81C5926D5006FDD74 /* Build configuration list for PBXNativeTarget "InstaKiloTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +529,7 @@
 				2E27C7DA1C5926D5006FDD74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2E27C7DB1C5926D5006FDD74 /* Build configuration list for PBXNativeTarget "InstaKiloUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +538,7 @@
 				2E27C7DD1C5926D5006FDD74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
